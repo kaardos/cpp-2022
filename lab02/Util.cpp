@@ -1,7 +1,6 @@
 
 #include "Util.h"
 #include <cmath>
-
 double distance(const Point &a, const Point &b) {
     return sqrt(pow(b.getX()-a.getX(),2) + pow(a.getY()-b.getY(),2) );
 }
@@ -35,5 +34,26 @@ bool isSquare(const Point &a, const Point &b, const Point &c, const Point &d) {
 
     return false;
 }
+Point* createArray(int numPoints){
+    Point * points = new Point[numPoints];
+    srand(time(0));
+    for(int i = 0; i < numPoints; ++i){
+        points[i] = Point(rand() % 2000, rand() % 2000);
+    }
+    return points;
+}
 
-//9.esnel divid et imperat
+void printArray(Point* points, int numPoints){
+    for(int i = 0; i < numPoints; ++i){
+        std::cout<<"Pont: "<<i+1<<std::endl;
+        points[i].print();
+        std::cout<<std::endl;
+    }
+}
+
+void sortPoints(Point* points, int numPoints){
+    std::sort (points, points+numPoints);
+}
+void deletePoints(Point* points){
+    delete[] points;
+}

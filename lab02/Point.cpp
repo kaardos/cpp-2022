@@ -22,3 +22,4 @@ int Point::getY() const {
 void Point::print() const {
     cout<<"x:"<<getX()<<endl<<"y:"<<getY()<<endl;
 }
+
