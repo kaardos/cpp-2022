@@ -39,18 +39,5 @@ private:
     int mRows; //number of rows
     int mCols; //number of columns
 };
-Matrix operator+(const Matrix& x, const Matrix& y){
-    //try{
-        if((x.mRows != y.mRows)&&(x.mCols != y.mCols)){
-            throw out_of_range("Out of range!");
-        }
 
-
-    //}catch(out_of_range& exception){
-    //    cout<<exception.what() <<
-    //}
-    //try catch majd a main-be
-
-
-}
 #endif //CPP_2022_MATRIX_H

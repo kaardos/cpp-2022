@@ -76,3 +76,32 @@ bool Matrix::isSquare() const {
     }
     return false;
 }
+Matrix operator+(const Matrix& x, const Matrix& y){
+    if((x.mRows != y.mRows)&&(x.mCols != y.mCols)){
+        throw out_of_range("Out of range!");
+    }
+    Matrix uj(x.mRows,x.mCols);
+    for(int i = 0; i < uj.getRows(); ++i){
+        for(int j = 0; j < uj.getCols(); j++){
+            uj.mElements[i][j] = x.mElements[i][j] + y.mElements[i][j];
+        }
+    }
+    return uj;
+
+}
+Matrix operator*(const Matrix& x, const Matrix& y){
+    if(x.mCols != y.mRows){
+        throw out_of_range("Out of range!");
+    }
+    Matrix uj(x.mRows,y.mCols);
+    for(int i = 0; i < uj.getRows(); ++i){
+        for(int j = 0; j < uj.getCols(); j++){
+            double sum = 0;
+            for(int k = 0; k < x.mCols; ++k){
+                sum += x.mElements[i][k] * y.mElements[k][j];
+            }
+            uj.mElements[i][j] = sum;
+        }
+    }
+    return uj;
+}
